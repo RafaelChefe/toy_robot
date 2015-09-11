@@ -10,14 +10,14 @@ describe RightCommand do
 
     let(:robot) { Robot.new }
     let(:table) { Table.new(5, 5) }
-    let(:right_command) { RightCommand.new }
+    let(:right_command) { RightCommand.new(robot) }
 
     it 'when facing NORTH turns EAST' do
       position = Position.new(1, 1, 'N')
 
       robot.place(table, position)
 
-      robot.execute(right_command)
+      right_command.execute
 
       expect(robot.report).to eq('position report: x == 1, y == 1, direction == E')
     end
@@ -27,7 +27,7 @@ describe RightCommand do
 
       robot.place(table, position)
 
-      robot.execute(right_command)
+      right_command.execute
 
       expect(robot.report).to eq('position report: x == 1, y == 1, direction == S')
     end
@@ -37,7 +37,7 @@ describe RightCommand do
 
       robot.place(table, position)
 
-      robot.execute(right_command)
+      right_command.execute
 
       expect(robot.report).to eq('position report: x == 1, y == 1, direction == W')
     end
@@ -47,7 +47,7 @@ describe RightCommand do
 
       robot.place(table, position)
 
-      robot.execute(right_command)
+      right_command.execute
 
       expect(robot.report).to eq('position report: x == 1, y == 1, direction == N')
     end
