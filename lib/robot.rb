@@ -5,11 +5,27 @@ class Robot
     @current_position = nil
   end
 
-  attr_reader :table, :position
+  attr_reader :table, :current_position
 
   def place(table, position)
-    @table = table
-    @position = position
+    if table.position_is_valid?(position)
+      @table = table
+      @current_position = position
+    end
   end
 
+  def report
+    if not_placed?
+      'robot not in place'
+    else
+      "position report: x == #{@current_position.x}, " \
+      "y == #{@current_position.y}, " \
+      "direction == #{@current_position.direction}"
+    end
+  end
+
+  private
+    def not_placed?
+      @table.nil? || @current_position.nil?
+    end
 end
