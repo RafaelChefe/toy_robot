@@ -17,4 +17,5 @@ class Table
     def maximum_y
       @width - 1
     end
+
 end

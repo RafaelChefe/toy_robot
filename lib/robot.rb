@@ -1,11 +1,12 @@
 class Robot
 
+  attr_reader :table, :current_position
+
   def initialize
     @table = nil
     @current_position = nil
   end
 
-  attr_reader :table, :current_position
 
   def place(table, position)
     if table.position_is_valid?(position)
@@ -28,4 +29,5 @@ class Robot
     def not_placed?
       @table.nil? || @current_position.nil?
     end
+
 end

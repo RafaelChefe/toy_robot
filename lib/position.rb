@@ -1,5 +1,7 @@
 class Position
 
+  attr_reader :x, :y, :direction
+
   DIRECTIONS = %w(N E S W).freeze
 
   def initialize(x, y, direction)
@@ -7,7 +9,5 @@ class Position
     @y = y
     @direction = direction
   end
-
-  attr_reader :x, :y, :direction
 
 end
