@@ -75,64 +75,76 @@ describe Robot do
   end
 
   describe '#execute_command' do
-    it 'correctly turns to the left' do
-      position = Position.new(1, 1, 'N')
+    context 'when placed correctly' do
+      it 'correctly turns to the left' do
+        position = Position.new(1, 1, 'N')
 
-      robot.place(table, position)
+        robot.place(table, position)
 
-      robot.execute(LeftCommand.new)
+        robot.execute(LeftCommand.new)
 
-      expect(robot.short_report).to eq('1, 1, W')
+        expect(robot.short_report).to eq('1, 1, W')
+      end
+
+      it 'correctly turns to the right' do
+        position = Position.new(1, 1, 'N')
+
+        robot.place(table, position)
+
+        robot.execute(RightCommand.new)
+
+        expect(robot.short_report).to eq('1, 1, E')
+      end
+
+      it 'correctly moves NORTH' do
+        position = Position.new(1, 1, 'N')
+
+        robot.place(table, position)
+
+        robot.execute(MoveCommand.new)
+
+        expect(robot.short_report).to eq('1, 2, N')
+      end
+
+      it 'correctly moves SOUTH' do
+        position = Position.new(1, 1, 'S')
+
+        robot.place(table, position)
+
+        robot.execute(MoveCommand.new)
+
+        expect(robot.short_report).to eq('1, 0, S')
+      end
+
+      it 'correctly moves EAST' do
+        position = Position.new(1, 1, 'E')
+
+        robot.place(table, position)
+
+        robot.execute(MoveCommand.new)
+
+        expect(robot.short_report).to eq('2, 1, E')
+      end
+
+      it 'correctly moves WEST' do
+        position = Position.new(1, 1, 'W')
+
+        robot.place(table, position)
+
+        robot.execute(MoveCommand.new)
+
+        expect(robot.short_report).to eq('0, 1, W')
+      end
     end
 
-    it 'correctly turns to the right' do
-      position = Position.new(1, 1, 'N')
+    context 'before being placed in a table' do
+      it 'ignores other commands' do
+        robot.execute(MoveCommand.new)
+        robot.execute(LeftCommand.new)
+        robot.execute(RightCommand.new)
 
-      robot.place(table, position)
-
-      robot.execute(RightCommand.new)
-
-      expect(robot.short_report).to eq('1, 1, E')
-    end
-
-    it 'correctly moves NORTH' do
-      position = Position.new(1, 1, 'N')
-
-      robot.place(table, position)
-
-      robot.execute(MoveCommand.new)
-
-      expect(robot.short_report).to eq('1, 2, N')
-    end
-
-    it 'correctly moves SOUTH' do
-      position = Position.new(1, 1, 'S')
-
-      robot.place(table, position)
-
-      robot.execute(MoveCommand.new)
-
-      expect(robot.short_report).to eq('1, 0, S')
-    end
-
-    it 'correctly moves EAST' do
-      position = Position.new(1, 1, 'E')
-
-      robot.place(table, position)
-
-      robot.execute(MoveCommand.new)
-
-      expect(robot.short_report).to eq('2, 1, E')
-    end
-
-    it 'correctly moves WEST' do
-      position = Position.new(1, 1, 'W')
-
-      robot.place(table, position)
-
-      robot.execute(MoveCommand.new)
-
-      expect(robot.short_report).to eq('0, 1, W')
+        expect(robot.short_report).to eq('not in place')
+      end
     end
   end
 end

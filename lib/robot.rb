@@ -34,9 +34,11 @@ class Robot
   end
 
   def execute(command)
-    new_position = command.get_new_position(@current_position)
+    unless not_placed?
+      new_position = command.get_new_position(@current_position)
 
-    @current_position = new_position if @table.position_is_valid?(new_position)
+      @current_position = new_position if @table.position_is_valid?(new_position)
+    end
   end
 
   private
