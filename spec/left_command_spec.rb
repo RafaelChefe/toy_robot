@@ -10,14 +10,14 @@ describe LeftCommand do
 
     let(:robot) { Robot.new }
     let(:table) { Table.new(5, 5) }
-    let(:left_command) { LeftCommand.new }
+    let(:left_command) { LeftCommand.new(robot) }
 
     it 'when facing NORTH turns WEST' do
       position = Position.new(1, 1, 'N')
 
       robot.place(table, position)
 
-      robot.execute(left_command)
+      left_command.execute
 
       expect(robot.report).to eq('position report: x == 1, y == 1, direction == W')
     end
@@ -27,7 +27,7 @@ describe LeftCommand do
 
       robot.place(table, position)
 
-      robot.execute(left_command)
+      left_command.execute
 
       expect(robot.report).to eq('position report: x == 1, y == 1, direction == S')
     end
@@ -37,7 +37,7 @@ describe LeftCommand do
 
       robot.place(table, position)
 
-      robot.execute(left_command)
+      left_command.execute
 
       expect(robot.report).to eq('position report: x == 1, y == 1, direction == E')
     end
@@ -47,7 +47,7 @@ describe LeftCommand do
 
       robot.place(table, position)
 
-      robot.execute(left_command)
+      left_command.execute
 
       expect(robot.report).to eq('position report: x == 1, y == 1, direction == N')
     end

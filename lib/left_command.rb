@@ -1,8 +1,14 @@
 class LeftCommand
 
-  def get_new_position(current_position)
-    Position.new(current_position.x, current_position.y, current_position.direction_left)
+  def initialize(robot)
+    @robot = robot
   end
 
+  def execute
+    unless @robot.not_placed?
+      @robot.current_position = Position.new(@robot.current_position.x,
+                                             @robot.current_position.y,
+                                             @robot.current_position.direction_left)
+    end
+  end
 end
-

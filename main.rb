@@ -19,7 +19,7 @@ loop do
   elsif command =~ /MOVE/
     robot.execute(MoveCommand.new)
   elsif command =~ /LEFT/
-    robot.execute(LeftCommand.new)
+    LeftCommand.new(robot).execute
   elsif command =~ /RIGHT/
     robot.execute(RightCommand.new)
   elsif command =~ /REPORT/
