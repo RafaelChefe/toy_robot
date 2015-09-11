@@ -14,20 +14,38 @@ describe Table do
       expect(table.position_is_valid?(position)).to be true
     end
 
-    it 'returns false when X is invalid' do
+    it 'returns false when X is too big' do
       position = Position.new(8, 2, 'N')
 
       expect(table.position_is_valid?(position)).to be false
     end
 
-    it 'returns false when Y is invalid' do
+    it 'returns false when Y is too big' do
       position = Position.new(2, 8, 'N')
 
       expect(table.position_is_valid?(position)).to be false
     end
 
-    it 'returns false when X and Y are invalid' do
+    it 'returns false when X and Y are too big' do
       position = Position.new(8, 8, 'N')
+
+      expect(table.position_is_valid?(position)).to be false
+    end
+
+    it 'returns false when X is negative' do
+      position = Position.new(-1, 2, 'N')
+
+      expect(table.position_is_valid?(position)).to be false
+    end
+
+    it 'returns false when Y is negative' do
+      position = Position.new(2, -1, 'N')
+
+      expect(table.position_is_valid?(position)).to be false
+    end
+
+    it 'returns false when X and Y are too big' do
+      position = Position.new(-1, -1, 'N')
 
       expect(table.position_is_valid?(position)).to be false
     end
