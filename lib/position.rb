@@ -8,4 +8,6 @@ class Position
     @direction = direction
   end
 
+  attr_reader :x, :y, :direction
+
 end
