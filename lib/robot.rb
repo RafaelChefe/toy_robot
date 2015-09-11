@@ -25,6 +25,20 @@ class Robot
     end
   end
 
+  def short_report
+    if not_placed?
+      'not in place'
+    else
+      "#{@current_position.x}, #{@current_position.y}, #{@current_position.direction}"
+    end
+  end
+
+  def execute(command)
+    new_position = command.get_new_position(@current_position)
+
+    @current_position = new_position if @table.position_is_valid?(new_position)
+  end
+
   private
     def not_placed?
       @table.nil? || @current_position.nil?

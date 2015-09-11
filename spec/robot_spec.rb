@@ -1,5 +1,10 @@
 require 'spec_helper'
 require 'robot'
+require 'position'
+require 'table'
+require 'left_command'
+require 'right_command'
+require 'move_command'
 
 describe Robot do
 
@@ -56,6 +61,78 @@ describe Robot do
       it 'reports error message' do
         expect(robot.report).to eq('robot not in place')
       end
+    end
+  end
+
+  describe '#short_report' do
+    it 'returns a short report' do
+      position = Position.new(1, 1, 'N')
+
+      robot.place(table, position)
+
+      expect(robot.short_report).to eq('1, 1, N')
+    end
+  end
+
+  describe '#execute_command' do
+    it 'correctly turns to the left' do
+      position = Position.new(1, 1, 'N')
+
+      robot.place(table, position)
+
+      robot.execute(LeftCommand.new)
+
+      expect(robot.short_report).to eq('1, 1, W')
+    end
+
+    it 'correctly turns to the right' do
+      position = Position.new(1, 1, 'N')
+
+      robot.place(table, position)
+
+      robot.execute(RightCommand.new)
+
+      expect(robot.short_report).to eq('1, 1, E')
+    end
+
+    it 'correctly moves NORTH' do
+      position = Position.new(1, 1, 'N')
+
+      robot.place(table, position)
+
+      robot.execute(MoveCommand.new)
+
+      expect(robot.short_report).to eq('1, 2, N')
+    end
+
+    it 'correctly moves SOUTH' do
+      position = Position.new(1, 1, 'S')
+
+      robot.place(table, position)
+
+      robot.execute(MoveCommand.new)
+
+      expect(robot.short_report).to eq('1, 0, S')
+    end
+
+    it 'correctly moves EAST' do
+      position = Position.new(1, 1, 'E')
+
+      robot.place(table, position)
+
+      robot.execute(MoveCommand.new)
+
+      expect(robot.short_report).to eq('2, 1, E')
+    end
+
+    it 'correctly moves WEST' do
+      position = Position.new(1, 1, 'W')
+
+      robot.place(table, position)
+
+      robot.execute(MoveCommand.new)
+
+      expect(robot.short_report).to eq('0, 1, W')
     end
   end
 end
