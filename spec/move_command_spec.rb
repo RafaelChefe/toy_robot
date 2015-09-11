@@ -3,7 +3,7 @@ require 'move_command'
 
 describe MoveCommand do
 
-  describe '#new_position' do
+  describe '#execute' do
 
     let(:robot) { Robot.new }
     let(:table) { Table.new(5, 5) }

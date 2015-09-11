@@ -6,7 +6,7 @@ require 'table'
 
 describe RightCommand do
 
-  describe '#get_new_position' do
+  describe '#execute' do
 
     let(:robot) { Robot.new }
     let(:table) { Table.new(5, 5) }
