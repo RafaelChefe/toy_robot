@@ -1,6 +1,7 @@
 class Robot
 
   attr_reader :table, :current_position
+  attr_accessor :current_position
 
   def initialize
     @table = nil
@@ -41,9 +42,7 @@ class Robot
     end
   end
 
-  private
-    def not_placed?
-      @table.nil? || @current_position.nil?
-    end
-
+  def not_placed?
+    @table.nil? || @current_position.nil?
+  end
 end

@@ -81,7 +81,7 @@ describe Robot do
 
         robot.place(table, position)
 
-        robot.execute(LeftCommand.new)
+        LeftCommand.new(robot).execute
 
         expect(robot.short_report).to eq('1, 1, W')
       end
@@ -140,10 +140,26 @@ describe Robot do
     context 'before being placed in a table' do
       it 'ignores other commands' do
         robot.execute(MoveCommand.new)
-        robot.execute(LeftCommand.new)
+        LeftCommand.new(robot).execute
         robot.execute(RightCommand.new)
 
         expect(robot.short_report).to eq('not in place')
+      end
+    end
+  end
+
+  describe '#not_placed?' do
+    context 'before robot is placed' do
+      it 'returns true' do
+        expect(robot.not_placed?).to be true
+      end
+    end
+
+    context 'after robot is placed' do
+      it 'returns false' do
+        robot.place(table, Position.new(1, 2, 'E'))
+
+        expect(robot.not_placed?).to be false
       end
     end
   end
