@@ -6,7 +6,7 @@ class Table
   end
 
   def position_is_valid?(position)
-    position.x < maximum_x && position.y < maximum_y
+    position.x <= maximum_x && position.y <= maximum_y
   end
 
   private
