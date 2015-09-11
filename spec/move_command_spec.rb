@@ -7,14 +7,14 @@ describe MoveCommand do
 
     let(:robot) { Robot.new }
     let(:table) { Table.new(5, 5) }
-    let(:move_command) { MoveCommand.new }
+    let(:move_command) { MoveCommand.new(robot) }
 
     it 'decreases X when robot is facing WEST' do
       position = Position.new(1, 1, 'W')
 
       robot.place(table, position)
 
-      robot.execute(move_command)
+      move_command.execute
 
       expect(robot.report).to eq('position report: x == 0, y == 1, direction == W')
     end
@@ -24,7 +24,7 @@ describe MoveCommand do
 
       robot.place(table, position)
 
-      robot.execute(move_command)
+      move_command.execute
 
       expect(robot.report).to eq('position report: x == 2, y == 1, direction == E')
     end
@@ -34,7 +34,7 @@ describe MoveCommand do
 
       robot.place(table, position)
 
-      robot.execute(move_command)
+      move_command.execute
 
       expect(robot.report).to eq('position report: x == 1, y == 2, direction == N')
     end
@@ -44,7 +44,7 @@ describe MoveCommand do
 
       robot.place(table, position)
 
-      robot.execute(move_command)
+      move_command.execute
 
       expect(robot.report).to eq('position report: x == 1, y == 0, direction == S')
     end
