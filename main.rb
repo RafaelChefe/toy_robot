@@ -21,7 +21,7 @@ loop do
   elsif command =~ /LEFT/
     LeftCommand.new(robot).execute
   elsif command =~ /RIGHT/
-    robot.execute(RightCommand.new)
+    RightCommand.new(robot).execute
   elsif command =~ /REPORT/
     puts robot.report
   end

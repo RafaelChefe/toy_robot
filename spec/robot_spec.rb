@@ -91,7 +91,7 @@ describe Robot do
 
         robot.place(table, position)
 
-        robot.execute(RightCommand.new)
+        RightCommand.new(robot).execute
 
         expect(robot.short_report).to eq('1, 1, E')
       end
@@ -141,7 +141,7 @@ describe Robot do
       it 'ignores other commands' do
         robot.execute(MoveCommand.new)
         LeftCommand.new(robot).execute
-        robot.execute(RightCommand.new)
+        RightCommand.new(robot).execute
 
         expect(robot.short_report).to eq('not in place')
       end
