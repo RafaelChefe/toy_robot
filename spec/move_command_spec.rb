@@ -9,24 +9,24 @@ describe MoveCommand do
     let(:table) { Table.new(5, 5) }
     let(:move_command) { MoveCommand.new }
 
-    it 'increases X when robot is facing WEST' do
+    it 'decreases X when robot is facing WEST' do
       position = Position.new(1, 1, 'W')
 
       robot.place(table, position)
 
       robot.execute(move_command)
 
-      expect(robot.report).to eq('position report: x == 2, y == 1, direction == W')
+      expect(robot.report).to eq('position report: x == 0, y == 1, direction == W')
     end
 
-    it 'decreases X when robot is facing EAST' do
+    it 'increases X when robot is facing EAST' do
       position = Position.new(1, 1, 'E')
 
       robot.place(table, position)
 
       robot.execute(move_command)
 
-      expect(robot.report).to eq('position report: x == 0, y == 1, direction == E')
+      expect(robot.report).to eq('position report: x == 2, y == 1, direction == E')
     end
 
     it 'increases Y when robot is facing NORTH' do
