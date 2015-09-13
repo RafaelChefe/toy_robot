@@ -43,6 +43,6 @@ class Robot
   end
 
   def not_placed?
-    @table.nil? || @current_position.nil?
+    @current_position.nil?
   end
 end
