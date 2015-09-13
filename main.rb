@@ -4,6 +4,7 @@ require_relative 'lib/position'
 require_relative 'lib/move_command'
 require_relative 'lib/left_command'
 require_relative 'lib/right_command'
+require_relative 'lib/report_command'
 
 table = Table.new(5, 5)
 robot = Robot.new
@@ -23,6 +24,6 @@ loop do
   elsif command =~ /RIGHT/
     RightCommand.new(robot).execute
   elsif command =~ /REPORT/
-    puts robot.report
+    ReportCommand.new(robot).execute
   end
 end
