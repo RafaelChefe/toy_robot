@@ -1,5 +1,8 @@
 require 'spec_helper'
 require 'place_command'
+require 'robot'
+require 'table'
+require 'position'
 
 describe PlaceCommand do
 

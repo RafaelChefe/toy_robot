@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'left_command'
+require 'place_command'
 require 'position'
 require 'robot'
 require 'table'
@@ -15,7 +16,7 @@ describe LeftCommand do
     it 'when facing NORTH turns WEST' do
       position = Position.new(1, 1, 'N')
 
-      robot.place(table, position)
+      PlaceCommand.new(robot, table, position).execute
 
       left_command.execute
 
@@ -25,7 +26,7 @@ describe LeftCommand do
     it 'when facing WEST turns SOUTH' do
       position = Position.new(1, 1, 'W')
 
-      robot.place(table, position)
+      PlaceCommand.new(robot, table, position).execute
 
       left_command.execute
 
@@ -35,7 +36,7 @@ describe LeftCommand do
     it 'when facing SOUTH turns EAST' do
       position = Position.new(1, 1, 'S')
 
-      robot.place(table, position)
+      PlaceCommand.new(robot, table, position).execute
 
       left_command.execute
 
@@ -45,7 +46,7 @@ describe LeftCommand do
     it 'when facing EAST turns NORTH' do
       position = Position.new(1, 1, 'E')
 
-      robot.place(table, position)
+      PlaceCommand.new(robot, table, position).execute
 
       left_command.execute
 

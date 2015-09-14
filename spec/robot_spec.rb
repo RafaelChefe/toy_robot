@@ -3,6 +3,7 @@ require 'robot'
 require 'position'
 require 'table'
 require 'left_command'
+require 'place_command'
 require 'right_command'
 require 'move_command'
 
@@ -16,11 +17,7 @@ describe Robot do
       let(:position) { Position.new(2, 3, 'N') }
 
       before do
-        robot.place(table, position)
-      end
-
-      it 'places robot in a table' do
-        expect(robot.table).to eq(table)
+        PlaceCommand.new(robot, table, position).execute
       end
 
       it 'places robot in the correct position' do
@@ -32,18 +29,13 @@ describe Robot do
       let(:position) { Position.new(9, 9, 'N') }
 
       before do
-        robot.place(table, position)
+        PlaceCommand.new(robot, table, position).execute
       end
 
-      it 'will not place robot in a table' do
-        expect(robot.table).to be nil
-      end
-
-      it 'will not place robot in an invalid position' do
-        expect(robot.table).to be nil
+      it 'will not place robot' do
+        expect(robot.current_position).to be nil
       end
     end
-
   end
 
   describe '#report' do
@@ -51,7 +43,7 @@ describe Robot do
 
     context 'after inicial placement of the robot' do
       it 'reports current position correctly' do
-        robot.place(table, position)
+        PlaceCommand.new(robot, table, position).execute
 
         expect(robot.report).to eq('position report: x == 2, y == 3, direction == N')
       end
@@ -68,7 +60,7 @@ describe Robot do
     it 'returns a short report' do
       position = Position.new(1, 1, 'N')
 
-      robot.place(table, position)
+      PlaceCommand.new(robot, table, position).execute
 
       expect(robot.short_report).to eq('1, 1, N')
     end
@@ -79,7 +71,7 @@ describe Robot do
       it 'correctly turns to the left' do
         position = Position.new(1, 1, 'N')
 
-        robot.place(table, position)
+        PlaceCommand.new(robot, table, position).execute
 
         LeftCommand.new(robot).execute
 
@@ -89,7 +81,7 @@ describe Robot do
       it 'correctly turns to the right' do
         position = Position.new(1, 1, 'N')
 
-        robot.place(table, position)
+        PlaceCommand.new(robot, table, position).execute
 
         RightCommand.new(robot).execute
 
@@ -99,7 +91,7 @@ describe Robot do
       it 'correctly moves NORTH' do
         position = Position.new(1, 1, 'N')
 
-        robot.place(table, position)
+        PlaceCommand.new(robot, table, position).execute
 
         MoveCommand.new(robot, table).execute
 
@@ -109,7 +101,7 @@ describe Robot do
       it 'correctly moves SOUTH' do
         position = Position.new(1, 1, 'S')
 
-        robot.place(table, position)
+        PlaceCommand.new(robot, table, position).execute
 
         MoveCommand.new(robot, table).execute
 
@@ -119,7 +111,7 @@ describe Robot do
       it 'correctly moves EAST' do
         position = Position.new(1, 1, 'E')
 
-        robot.place(table, position)
+        PlaceCommand.new(robot, table, position).execute
 
         MoveCommand.new(robot, table).execute
 
@@ -129,7 +121,7 @@ describe Robot do
       it 'correctly moves WEST' do
         position = Position.new(1, 1, 'W')
 
-        robot.place(table, position)
+        PlaceCommand.new(robot, table, position).execute
 
         MoveCommand.new(robot, table).execute
 
@@ -157,7 +149,7 @@ describe Robot do
 
     context 'after robot is placed' do
       it 'returns false' do
-        robot.place(table, Position.new(1, 2, 'E'))
+        PlaceCommand.new(robot, table, Position.new(1, 2, 'E')).execute
 
         expect(robot.not_placed?).to be false
       end

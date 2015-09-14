@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'place_command'
 require 'report_command'
 require 'position'
 require 'robot'
@@ -17,7 +18,7 @@ describe ReportCommand do
       it 'prints report to stdout' do
         report_command = ReportCommand.new(robot)
 
-        robot.place(table, position)
+        PlaceCommand.new(robot, table, position).execute
 
         expected_report = "1, 1, N\n"
 
@@ -31,7 +32,7 @@ describe ReportCommand do
       it 'prints report to stdout' do
         report_command = ReportCommand.new(robot)
 
-        robot.place(table, position)
+        PlaceCommand.new(robot, table, position).execute
 
         expected_report = "robot not in place\n"
 
