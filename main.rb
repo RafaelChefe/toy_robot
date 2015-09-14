@@ -18,7 +18,7 @@ loop do
 
     robot.place(table, Position.new(x.to_i, y.to_i, direction))
   elsif command =~ /MOVE/
-    MoveCommand.new(robot).execute
+    MoveCommand.new(robot, table).execute
   elsif command =~ /LEFT/
     LeftCommand.new(robot).execute
   elsif command =~ /RIGHT/

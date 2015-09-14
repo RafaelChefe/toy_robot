@@ -101,7 +101,7 @@ describe Robot do
 
         robot.place(table, position)
 
-        MoveCommand.new(robot).execute
+        MoveCommand.new(robot, table).execute
 
         expect(robot.short_report).to eq('1, 2, N')
       end
@@ -111,7 +111,7 @@ describe Robot do
 
         robot.place(table, position)
 
-        MoveCommand.new(robot).execute
+        MoveCommand.new(robot, table).execute
 
         expect(robot.short_report).to eq('1, 0, S')
       end
@@ -121,7 +121,7 @@ describe Robot do
 
         robot.place(table, position)
 
-        MoveCommand.new(robot).execute
+        MoveCommand.new(robot, table).execute
 
         expect(robot.short_report).to eq('2, 1, E')
       end
@@ -131,7 +131,7 @@ describe Robot do
 
         robot.place(table, position)
 
-        MoveCommand.new(robot).execute
+        MoveCommand.new(robot, table).execute
 
         expect(robot.short_report).to eq('0, 1, W')
       end
@@ -139,7 +139,7 @@ describe Robot do
 
     context 'before being placed in a table' do
       it 'ignores other commands' do
-        MoveCommand.new(robot).execute
+        MoveCommand.new(robot, table).execute
         LeftCommand.new(robot).execute
         RightCommand.new(robot).execute
 
