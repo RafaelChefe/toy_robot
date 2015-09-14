@@ -1,5 +1,9 @@
 require 'spec_helper'
 require 'move_command'
+require 'place_command'
+require 'position'
+require 'robot'
+require 'table'
 
 describe MoveCommand do
 
@@ -12,7 +16,7 @@ describe MoveCommand do
     it 'decreases X when robot is facing WEST' do
       position = Position.new(1, 1, 'W')
 
-      robot.place(table, position)
+      PlaceCommand.new(robot, table, position).execute
 
       move_command.execute
 
@@ -22,7 +26,7 @@ describe MoveCommand do
     it 'increases X when robot is facing EAST' do
       position = Position.new(1, 1, 'E')
 
-      robot.place(table, position)
+      PlaceCommand.new(robot, table, position).execute
 
       move_command.execute
 
@@ -32,7 +36,7 @@ describe MoveCommand do
     it 'increases Y when robot is facing NORTH' do
       position = Position.new(1, 1, 'N')
 
-      robot.place(table, position)
+      PlaceCommand.new(robot, table, position).execute
 
       move_command.execute
 
@@ -42,7 +46,7 @@ describe MoveCommand do
     it 'decreases Y when robot is facing SOUTH' do
       position = Position.new(1, 1, 'S')
 
-      robot.place(table, position)
+      PlaceCommand.new(robot, table, position).execute
 
       move_command.execute
 
@@ -52,7 +56,7 @@ describe MoveCommand do
     it 'does nothing when position is invalid' do
       position = Position.new(4, 4, 'N')
 
-      robot.place(table, position)
+      PlaceCommand.new(robot, table, position).execute
 
       move_command.execute
 

@@ -3,6 +3,7 @@ require_relative 'lib/robot'
 require_relative 'lib/position'
 require_relative 'lib/move_command'
 require_relative 'lib/left_command'
+require_relative 'lib/place_command'
 require_relative 'lib/right_command'
 require_relative 'lib/report_command'
 
@@ -16,7 +17,7 @@ loop do
   if command =~ /PLACE\s*\d*,\s*\d*,\s*[NSEW]/
     command, x, y, direction = command.delete(',').split
 
-    robot.place(table, Position.new(x.to_i, y.to_i, direction))
+    PlaceCommand.new(robot, table, Position.new(x.to_i, y.to_i, direction)).execute
   elsif command =~ /MOVE/
     MoveCommand.new(robot, table).execute
   elsif command =~ /LEFT/
