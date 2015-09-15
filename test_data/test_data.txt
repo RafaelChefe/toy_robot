@@ -1,0 +1,116 @@
+Here are some test scenarios that can be performed on the app.
+
+Each test scenario is a list of commands that should be inputted in sequence, and an expected result.
+
+Each scenario assumes that the app was just started, and that no commands were issued yet.
+
+---------------------
+TEST 1: ignores commands before robot is put into place
+
+command list:
+MOVE
+LEFT
+RIGHT
+REPORT
+
+result: output will be 'not in place', showing that the commands had no effect.
+
+---------------------
+
+TEST 2: place robot on a given position
+commands:
+PLACE 1, 2, N
+REPORT
+
+expected result: '1, 2, N', robot is in the correct position
+
+---------------------
+
+TEST 3: robot is not placed in an invalid position
+commands:
+PLACE 9, 9, N
+REPORT
+
+expected result: 'not in place', invalid position was ignored
+
+---------------------
+
+TEST 4: robot rotates right
+commands:
+PLACE 1, 1, N
+RIGHT
+REPORT
+RIGHT
+REPORT
+RIGHT
+REPORT
+RIGHT
+REPORT
+
+expected result: output will show the robot facing East, South, West and North again, sequentially.
+
+---------------------
+
+TEST 5: robot rotates left
+PLACE 1, 1, N
+LEFT
+REPORT
+LEFT
+REPORT
+LEFT
+REPORT
+LEFT
+REPORT
+
+expected result: output will show the robot facing West, South, East and North again, sequentially
+
+---------------------
+
+TEST 6: robot is able to move in all four cardinal directions
+PLACE 1, 1, N
+MOVE
+RIGHT
+REPORT
+MOVE
+RIGHT
+REPORT
+MOVE
+RIGHT
+REPORT
+MOVE
+RIGHT
+REPORT
+
+expected result: output will be:
+
+1, 2, E
+2, 2, S
+2, 1, W
+1, 1, N
+
+showing that the robot walked 1 unit north, 1 unit east, 1 unit south and 1 unit west, making a lap and ending up at the beginning
+
+---------------------
+
+TEST 7: robot won't fall off the table
+commands:
+PLACE 4, 4, N
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+REPORT
+
+expected result: robot will be at '4, 4, N', ignoring commands to move further
+
+---------------------
+
+TEST 8: robot will ignore invalid commands
+commands:
+AUTODESTRUCT
+TAKEOFF
+KILL
+REPORT
+
+expected result: 'not in place', commands will be ignored, no errors will show
