@@ -8,9 +8,9 @@
 
 [Running the tests](./README.md#running-the-tests)
 
-[Examples of use](./test_data/test_data.txt)
-
 [Considerations about the development](./README.md#considerations-about-the-development)
+
+[Examples of use](./test_data/test_data.txt)
 
 ### Description
 
