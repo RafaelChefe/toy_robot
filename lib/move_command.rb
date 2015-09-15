@@ -5,6 +5,8 @@ class MoveCommand
     @table = table
   end
 
+  # attempts to move the robot 1 unit forward. If the new position is valid,
+  # updates the robot's position. If it's invalid, nothing happens.
   def execute
     unless @robot.not_placed?
       new_position =

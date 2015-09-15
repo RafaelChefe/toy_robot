@@ -5,6 +5,7 @@ class Commander
     @table = table
   end
 
+  # parses user input and issues the appropriate commands to the robot
   def parse(command)
     if command =~ /PLACE\s*\d*,\s*\d*,\s*[NSEW]/
       command, x, y, direction = command.delete(',').split
