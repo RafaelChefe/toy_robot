@@ -1,5 +1,15 @@
 # Toy robot simulator
 
+[Description](./blob/master/README.md#description)
+
+[Setup](./blob/master/README.md#setup)
+
+[Running the app](./blob/master/README.md#running-the-app)
+
+[Running the tests](./blob/master/README.md#running-the-tests)
+
+[Considerations about the development](./blob/master/README.md#considerations-about-the-development)
+
 ### Description
 
 * The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
@@ -60,3 +70,24 @@ MOVE
 REPORT
 Output: 3,3,NORTH
 ```
+## Setup
+
+* Make sure you have Ruby 2.2 installed in your machine. If you need help installing Ruby, take a look at the [official installation guide](https://www.ruby-lang.org/en/documentation/installation/).
+* Install the [bundler gem](http://bundler.io/) by running `gem install bundler`
+* clone this repo: `git clone git@github.com:RafaelChefe/toy_robot.git`
+* change to the app directory: `cd toy_robot`
+* install dependencies: `bundle install`
+
+## Running the app:
+```ruby main.rb```
+
+## Running the tests:
+```bundle exec rspec```
+
+## Considerations about the development:
+
+* Since the application is about a robot that receives and executes commands, it made perfect sense to use the [Command Pattern](https://en.wikipedia.org/wiki/Command_pattern) to implement it. It also mades is very easy to add new commands as needed, like a `TELEPORT` command, that would teleport the robot to a random place on the table.
+
+* The table is passed along to the commands when needed, and it's responsible for checking if a position is valid or not. If we need, say, a flying robot that moves in a three-dimensional space instead of a 2D table, it would be easy to implement it.
+
+* The Commander class takes a string, parses it and return the appropriate command. The command string can come from anywhere. As it is, the commands are read from the stdinput, but it the same class could be used to read commands from a text file, or from web API.
