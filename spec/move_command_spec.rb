@@ -20,7 +20,7 @@ describe MoveCommand do
 
       move_command.execute
 
-      expect(robot.report).to eq('position report: x == 0, y == 1, direction == W')
+      expect(robot.report).to eq('0, 1, W')
     end
 
     it 'increases X when robot is facing EAST' do
@@ -30,7 +30,7 @@ describe MoveCommand do
 
       move_command.execute
 
-      expect(robot.report).to eq('position report: x == 2, y == 1, direction == E')
+      expect(robot.report).to eq('2, 1, E')
     end
 
     it 'increases Y when robot is facing NORTH' do
@@ -40,7 +40,7 @@ describe MoveCommand do
 
       move_command.execute
 
-      expect(robot.report).to eq('position report: x == 1, y == 2, direction == N')
+      expect(robot.report).to eq('1, 2, N')
     end
 
     it 'decreases Y when robot is facing SOUTH' do
@@ -50,7 +50,7 @@ describe MoveCommand do
 
       move_command.execute
 
-      expect(robot.report).to eq('position report: x == 1, y == 0, direction == S')
+      expect(robot.report).to eq('1, 0, S')
     end
 
     it 'does nothing when position is invalid' do
@@ -60,7 +60,7 @@ describe MoveCommand do
 
       move_command.execute
 
-      expect(robot.report).to eq('position report: x == 4, y == 4, direction == N')
+      expect(robot.report).to eq('4, 4, N')
     end
   end
 end

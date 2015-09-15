@@ -45,13 +45,13 @@ describe Robot do
       it 'reports current position correctly' do
         PlaceCommand.new(robot, table, position).execute
 
-        expect(robot.report).to eq('position report: x == 2, y == 3, direction == N')
+        expect(robot.report).to eq('2, 3, N')
       end
     end
 
     context 'before initial placement of the robot' do
       it 'reports error message' do
-        expect(robot.report).to eq('robot not in place')
+        expect(robot.report).to eq('not in place')
       end
     end
   end
@@ -62,7 +62,7 @@ describe Robot do
 
       PlaceCommand.new(robot, table, position).execute
 
-      expect(robot.short_report).to eq('1, 1, N')
+      expect(robot.report).to eq('1, 1, N')
     end
   end
 
@@ -75,7 +75,7 @@ describe Robot do
 
         LeftCommand.new(robot).execute
 
-        expect(robot.short_report).to eq('1, 1, W')
+        expect(robot.report).to eq('1, 1, W')
       end
 
       it 'correctly turns to the right' do
@@ -85,7 +85,7 @@ describe Robot do
 
         RightCommand.new(robot).execute
 
-        expect(robot.short_report).to eq('1, 1, E')
+        expect(robot.report).to eq('1, 1, E')
       end
 
       it 'correctly moves NORTH' do
@@ -95,7 +95,7 @@ describe Robot do
 
         MoveCommand.new(robot, table).execute
 
-        expect(robot.short_report).to eq('1, 2, N')
+        expect(robot.report).to eq('1, 2, N')
       end
 
       it 'correctly moves SOUTH' do
@@ -105,7 +105,7 @@ describe Robot do
 
         MoveCommand.new(robot, table).execute
 
-        expect(robot.short_report).to eq('1, 0, S')
+        expect(robot.report).to eq('1, 0, S')
       end
 
       it 'correctly moves EAST' do
@@ -115,7 +115,7 @@ describe Robot do
 
         MoveCommand.new(robot, table).execute
 
-        expect(robot.short_report).to eq('2, 1, E')
+        expect(robot.report).to eq('2, 1, E')
       end
 
       it 'correctly moves WEST' do
@@ -125,7 +125,7 @@ describe Robot do
 
         MoveCommand.new(robot, table).execute
 
-        expect(robot.short_report).to eq('0, 1, W')
+        expect(robot.report).to eq('0, 1, W')
       end
     end
 
@@ -135,7 +135,7 @@ describe Robot do
         LeftCommand.new(robot).execute
         RightCommand.new(robot).execute
 
-        expect(robot.short_report).to eq('not in place')
+        expect(robot.report).to eq('not in place')
       end
     end
   end

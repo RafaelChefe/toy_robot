@@ -34,7 +34,7 @@ describe ReportCommand do
 
         PlaceCommand.new(robot, table, position).execute
 
-        expected_report = "robot not in place\n"
+        expected_report = "not in place\n"
 
         expect { ReportCommand.new(robot).execute }.to output(expected_report).to_stdout
       end

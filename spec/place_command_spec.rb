@@ -17,7 +17,7 @@ describe PlaceCommand do
       it 'places robot ' do
         place_command.execute
 
-        expect(robot.report).to eq('position report: x == 1, y == 1, direction == N')
+        expect(robot.report).to eq('1, 1, N')
       end
     end
 
@@ -27,7 +27,7 @@ describe PlaceCommand do
       it 'places robot ' do
         place_command.execute
 
-        expect(robot.report).to eq('robot not in place')
+        expect(robot.report).to eq('not in place')
       end
     end
   end
