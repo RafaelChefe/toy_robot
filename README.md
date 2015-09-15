@@ -86,7 +86,7 @@ Output: 3,3,NORTH
 
 ## Considerations about the development:
 
-* Since the application is about a robot that receives and executes commands, it made perfect sense to use the [Command Pattern](https://en.wikipedia.org/wiki/Command_pattern) to implement it. It also mades is very easy to add new commands as needed, like a `TELEPORT` command, that would teleport the robot to a random place on the table.
+* Since the application is about a robot that receives and executes commands, it made perfect sense to use the [Command Pattern](https://en.wikipedia.org/wiki/Command_pattern) to implement it. It also makes it very easy to add new commands as needed, like a `TELEPORT` command, that would teleport the robot to a random place on the table.
 
 * The table is passed along to the commands when needed, and it's responsible for checking if a position is valid or not. If we need, say, a flying robot that moves in a three-dimensional space instead of a 2D table, it would be easy to implement it.
 
