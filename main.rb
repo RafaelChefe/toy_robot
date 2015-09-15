@@ -8,12 +8,14 @@ require_relative 'lib/place_command'
 require_relative 'lib/right_command'
 require_relative 'lib/report_command'
 
+# initializes a new 5x5 table, a new robot, and a new command interpreter
 table = Table.new(5, 5)
 robot = Robot.new
 commander = Commander.new(robot, table)
 
 puts "welcome to the toy robot simulator!"
 
+# keeps reading commands from stdin until user types EXIT
 loop do
   puts "input command (EXIT to quit): "
 

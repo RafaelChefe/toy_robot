@@ -6,6 +6,8 @@ class Robot
     @current_position = nil
   end
 
+  # returns current x coordinate, y coordinate and direction in readable format:
+  # x, y, d
   def report
     if not_placed?
       'not in place'
