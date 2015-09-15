@@ -13,12 +13,12 @@ describe Robot do
   let(:table) { Table.new(5, 7) }
 
   describe '#place' do
+    before do
+      PlaceCommand.new(robot, table, position).execute
+    end
+
     context 'with valid position' do
       let(:position) { Position.new(2, 3, 'N') }
-
-      before do
-        PlaceCommand.new(robot, table, position).execute
-      end
 
       it 'places robot in the correct position' do
         expect(robot.current_position).to eq(position)
@@ -27,10 +27,6 @@ describe Robot do
 
     context 'with invalid position' do
       let(:position) { Position.new(9, 9, 'N') }
-
-      before do
-        PlaceCommand.new(robot, table, position).execute
-      end
 
       it 'will not place robot' do
         expect(robot.current_position).to be nil
