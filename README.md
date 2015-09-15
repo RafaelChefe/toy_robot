@@ -1,14 +1,14 @@
 # Toy robot simulator
 
-[Description](./blob/master/README.md#description)
+[Description](./README.md#description)
 
-[Setup](./blob/master/README.md#setup)
+[Setup](./README.md#setup)
 
-[Running the app](./blob/master/README.md#running-the-app)
+[Running the app](./README.md#running-the-app)
 
-[Running the tests](./blob/master/README.md#running-the-tests)
+[Running the tests](./README.md#running-the-tests)
 
-[Considerations about the development](./blob/master/README.md#considerations-about-the-development)
+[Considerations about the development](./README.md#considerations-about-the-development)
 
 ### Description
 
