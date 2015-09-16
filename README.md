@@ -1,16 +1,11 @@
 # Toy robot simulator
 
-[Description](./README.md#description)
-
-[Setup](./README.md#setup)
-
-[Running the app](./README.md#running-the-app)
-
-[Running the tests](./README.md#running-the-tests)
-
-[Considerations about the development](./README.md#considerations-about-the-development)
-
-[Examples of use](./test_data/test_data.txt)
+* [Description](./README.md#description)
+* [Setup](./README.md#setup)
+* [Running the app](./README.md#running-the-app)
+* [Running the tests](./README.md#running-the-tests)
+* [Considerations about the development](./README.md#considerations-about-the-development)
+* [Examples of use](./test_data/test_data.txt)
 
 ### Description
 
