@@ -1,4 +1,9 @@
-# Toy robot simulator
+# Toy robot
+
+This is a famous coding puzzle, where the goal is to build a simple toy robot
+simulator.
+
+### Table of contents:
 
 * [Description](./README.md#description)
 * [Setup](./README.md#setup)
@@ -69,19 +74,33 @@ Output: 3,3,NORTH
 ```
 ## Setup
 
-* Make sure you have Ruby 2.2 installed in your machine. If you need help installing Ruby, take a look at the [official installation guide](https://www.ruby-lang.org/en/documentation/installation/).
-* Install the [bundler gem](http://bundler.io/) by running `gem install bundler`
-* clone this repo: `git clone git@github.com:RafaelChefe/toy_robot.git`
-* change to the app directory: `cd toy_robot`
-* install dependencies: `bundle install`
+1. Make sure you have Ruby 2.2 installed in your machine. If you need help installing Ruby, take a look at the [official installation guide](https://www.ruby-lang.org/en/documentation/installation/).
 
-## Running the app:
+2. Install the [bundler gem](http://bundler.io/) by running:
+
+    ```gem install bundler```
+
+3. Clone this repo:
+
+    ```git clone git@github.com:RafaelChefe/toy_robot.git```
+
+4. Change to the app directory:
+
+    ```cd toy_robot```
+
+5. Install dependencies:
+
+    ```bundle install```
+
+And you're ready to go!
+
+### Running the app:
 ```ruby main.rb```
 
-## Running the tests:
+### Running the tests:
 ```bundle exec rspec```
 
-## Considerations about the development:
+### Considerations about the development:
 
 * Since the application is about a robot that receives and executes commands, it made perfect sense to use the [Command Pattern](https://en.wikipedia.org/wiki/Command_pattern) to implement it. It also makes it very easy to add new commands as needed, like a `TELEPORT` command, that would teleport the robot to a random place on the table.
 
