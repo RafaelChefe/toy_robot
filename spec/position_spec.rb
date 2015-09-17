@@ -3,6 +3,32 @@ require 'position'
 
 describe Position do
 
+  describe '#go_to' do
+    it 'goes NORTH' do
+      position = Position.new(1, 1, 'N')
+
+      expect(position.go_to('N')).to eq(Position.new(1, 2, 'N'))
+    end
+
+    it 'goes SOUTH' do
+      position = Position.new(1, 1, 'S')
+
+      expect(position.go_to('S')).to eq(Position.new(1, 0, 'S'))
+    end
+
+    it 'goes EAST' do
+      position = Position.new(1, 1, 'E')
+
+      expect(position.go_to('E')).to eq(Position.new(2, 1, 'E'))
+    end
+
+    it 'goes WEST' do
+      position = Position.new(1, 1, 'W')
+
+      expect(position.go_to('W')).to eq(Position.new(0, 1, 'W'))
+    end
+  end
+
   describe '#==' do
     it 'returns true when coordinantes are the same in both positions' do
       position_one = Position.new(1, 1, 'N')
