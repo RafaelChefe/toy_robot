@@ -27,6 +27,10 @@ class Position
     @direction = direction
   end
 
+  def ==(other)
+    @x == other.x && @y == other.y && @direction == other.direction
+  end
+
   # these helper methods return THE NEXT cardinal direction of a given position,
   # to the LEFT and to the RIGHT, respectively
   def direction_left
