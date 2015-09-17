@@ -109,3 +109,5 @@ And you're ready to go!
 * The table is passed along to the commands when needed, and it's responsible for checking if a position is valid or not. If we need, say, a flying robot that moves in a three-dimensional space instead of a 2D table, it would be easy to implement it.
 
 * The Commander class takes a string, parses it and return the appropriate command. The command string can come from anywhere. As it is, the commands are read from the stdinput, but the same class could be used to read commands from a text file, or from web API.
+
+* Considering using the Decorator Pattern to implement move north, move south, etc.
