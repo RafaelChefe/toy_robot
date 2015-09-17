@@ -3,6 +3,15 @@ require 'position'
 
 describe Position do
 
+  describe '#==' do
+    it 'returns true when coordinantes are the same in both positions' do
+      position_one = Position.new(1, 1, 'N')
+      position_two = Position.new(1, 1, 'N')
+
+      expect(position_one).to eq(position_two)
+    end
+  end
+
   describe '#direction_left' do
     it 'when facing NORTH returns WEST' do
       position = Position.new(1, 2, 'N')
