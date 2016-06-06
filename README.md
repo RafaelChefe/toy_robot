@@ -1,23 +1,25 @@
-# Toy robot
+# Toy Robot Simulator
 
 [![Code Climate](https://codeclimate.com/github/RafaelChefe/toy_robot/badges/gpa.svg)](https://codeclimate.com/github/RafaelChefe/toy_robot)
 
-This is a famous coding puzzle, where the goal is to build a simple toy robot
-simulator.
-
-### Table of contents:
+## Table of contents:
 
 * [Description](./README.md#description)
+  * [Constraints](./README.md#constraints)
+  * [Example Input and Output](./README.md##example-input-and-output)
+  * [Deliverables](./README.md##deliverables)
 * [Setup](./README.md#setup)
 * [Running the app](./README.md#running-the-app)
 * [Running the tests](./README.md#running-the-tests)
 * [Considerations about the development](./README.md#considerations-about-the-development)
 * [Examples of use](./test_data/test_data.txt)
 
-### Description
+## Description
 
 * The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
+
 * There are no other obstructions on the table surface.
+
 * The robot is free to roam around the surface of the table, but must be prevented from falling to destruction. Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed.
 
 Create an application that can read in commands of the following form:
@@ -49,31 +51,54 @@ REPORT
 
 ### Constraints
 
-The toy robot must not fall off the table during movement. This also includes the initial placement of the toy robot. Any move that would cause the robot to fall must be ignored.
+* The toy robot must not fall off the table during movement. This also includes the initial placement of the toy robot.
 
-Example Input and Output:
-```
-a)
-PLACE 0,0,NORTH
-MOVE
-REPORT
-Output: 0,1,NORTH
+* Any move that would cause the robot to fall must be ignored.
 
-b)
-PLACE 0,0,NORTH
-LEFT
-REPORT
-Output: 0,0,WEST
+### Example Input and Output:
 
-c)
-PLACE 1,2,EAST
-MOVE
-MOVE
-LEFT
-MOVE
-REPORT
-Output: 3,3,NORTH
-```
+#### Example a
+
+    PLACE 0,0,NORTH
+    MOVE
+    REPORT
+
+Expected output:
+
+    0,1,NORTH
+
+#### Example b
+
+    PLACE 0,0,NORTH
+    LEFT
+    REPORT
+
+Expected output:
+
+    0,0,WEST
+
+#### Example c
+
+    PLACE 1,2,EAST
+    MOVE
+    MOVE
+    LEFT
+    MOVE
+    REPORT
+
+Expected output
+
+    3,3,NORTH
+
+### Deliverables
+
+Please provide your source code, and any test code/data you using in
+developing your solution.
+
+Please engineer your solution to a standard you consider suitable for
+production. It is not required to provide any graphical output showing the
+movement of the toy robot.
+
 ## Setup
 
 1. Make sure you have Ruby 2.2 installed in your machine. If you need help installing Ruby, take a look at the [official installation guide](https://www.ruby-lang.org/en/documentation/installation/).
