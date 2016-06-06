@@ -6,8 +6,8 @@
 
 * [Description](./README.md#description)
   * [Constraints](./README.md#constraints)
-  * [Example Input and Output](./README.md##example-input-and-output)
-  * [Deliverables](./README.md##deliverables)
+  * [Example Input and Output](./README.md#example-input-and-output)
+  * [Deliverables](./README.md#deliverables)
 * [Setup](./README.md#setup)
 * [Running the app](./README.md#running-the-app)
 * [Running the tests](./README.md#running-the-tests)
