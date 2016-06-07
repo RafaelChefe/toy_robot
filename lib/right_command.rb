@@ -7,7 +7,7 @@ class RightCommand
   # rotates the robot to the right.
   # coordinates stay the same, direction changes to the next cardinal direction to the right
   def execute
-    unless @robot.not_placed?
+    if @robot.placed?
       @robot.current_position = Position.new(@robot.current_position.x,
                                              @robot.current_position.y,
                                              @robot.current_position.direction_right)

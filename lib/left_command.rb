@@ -7,7 +7,7 @@ class LeftCommand
   # rotates the robot to the left.
   # coordinates stay the same, direction changes to the next cardinal direction to the left
   def execute
-    unless @robot.not_placed?
+    if @robot.placed?
       @robot.current_position = Position.new(@robot.current_position.x,
                                              @robot.current_position.y,
                                              @robot.current_position.direction_left)
