@@ -13,21 +13,21 @@ describe ReportCommand do
     let(:table) { Table.new(5, 5) }
 
     context 'with valid position' do
-      let!(:position) { Position.new(1, 1, 'N') }
+      let!(:position) { Position.new(1, 1, 'NORTH') }
 
       it 'prints report to stdout' do
         report_command = ReportCommand.new(robot)
 
         PlaceCommand.new(robot, table, position).execute
 
-        expected_report = "1, 1, N\n"
+        expected_report = "1, 1, NORTH\n"
 
         expect { ReportCommand.new(robot).execute }.to output(expected_report).to_stdout
       end
     end
 
     context 'with invalid position' do
-      let!(:position) { Position.new(-1, 1, 'N') }
+      let!(:position) { Position.new(-1, 1, 'NORTH') }
 
       it 'prints report to stdout' do
         report_command = ReportCommand.new(robot)
