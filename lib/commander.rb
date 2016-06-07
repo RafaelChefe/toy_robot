@@ -7,17 +7,17 @@ class Commander
 
   # parses user input and issues the appropriate commands to the robot
   def parse(command)
-    if command =~ /PLACE\s*\d*,\s*\d*,\s*[NSEW]/
+    if command =~ /^PLACE\s+\d+\s*,\s*\d+\s*,\s*[NSEW]$/
       command, x, y, direction = command.delete(',').split
 
       PlaceCommand.new(@robot, @table, Position.new(x.to_i, y.to_i, direction))
-    elsif command =~ /MOVE/
+    elsif command =~ /^MOVE$/
       MoveCommand.new(@robot, @table)
-    elsif command =~ /LEFT/
+    elsif command =~ /^LEFT$/
       LeftCommand.new(@robot)
-    elsif command =~ /RIGHT/
+    elsif command =~ /^RIGHT$/
       RightCommand.new(@robot)
-    elsif command =~ /REPORT/
+    elsif command =~ /^REPORT$/
       ReportCommand.new(@robot)
     end
   end
