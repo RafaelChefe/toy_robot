@@ -19,16 +19,16 @@ result: output will be 'not in place', showing that the commands had no effect.
 
 TEST 2: place robot on a given position
 commands:
-PLACE 1, 2, N
+PLACE 1, 2, NORTH
 REPORT
 
-expected result: '1, 2, N', robot is in the correct position
+expected result: '1, 2, NORTH', robot is in the correct position
 
 ---------------------
 
 TEST 3: robot is not placed in an invalid position
 commands:
-PLACE 9, 9, N
+PLACE 9, 9, NORTH
 REPORT
 
 expected result: 'not in place', invalid position was ignored
@@ -37,7 +37,7 @@ expected result: 'not in place', invalid position was ignored
 
 TEST 4: robot rotates right
 commands:
-PLACE 1, 1, N
+PLACE 1, 1, NORTH
 RIGHT
 REPORT
 RIGHT
@@ -52,7 +52,7 @@ expected result: output will show the robot facing East, South, West and North a
 ---------------------
 
 TEST 5: robot rotates left
-PLACE 1, 1, N
+PLACE 1, 1, NORTH
 LEFT
 REPORT
 LEFT
@@ -67,7 +67,7 @@ expected result: output will show the robot facing West, South, East and North a
 ---------------------
 
 TEST 6: robot is able to move in all four cardinal directions
-PLACE 1, 1, N
+PLACE 1, 1, NORTH
 MOVE
 RIGHT
 REPORT
@@ -83,10 +83,10 @@ REPORT
 
 expected result: output will be:
 
-1, 2, E
-2, 2, S
-2, 1, W
-1, 1, N
+1, 2, EAST
+2, 2, SOUTH
+2, 1, WEST
+1, 1, NORTH
 
 showing that the robot walked 1 unit north, 1 unit east, 1 unit south and 1 unit west, making a lap and ending up at the beginning
 
@@ -94,7 +94,7 @@ showing that the robot walked 1 unit north, 1 unit east, 1 unit south and 1 unit
 
 TEST 7: robot won't fall off the table
 commands:
-PLACE 4, 4, N
+PLACE 4, 4, NORTH
 MOVE
 MOVE
 MOVE
@@ -102,7 +102,7 @@ MOVE
 MOVE
 REPORT
 
-expected result: robot will be at '4, 4, N', ignoring commands to move further
+expected result: robot will be at '4, 4, NORTH', ignoring commands to move further
 
 ---------------------
 
