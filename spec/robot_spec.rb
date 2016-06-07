@@ -136,18 +136,18 @@ describe Robot do
     end
   end
 
-  describe '#not_placed?' do
+  describe '#placed?' do
     context 'before robot is placed' do
-      it 'returns true' do
-        expect(robot.not_placed?).to be true
+      it 'returns false' do
+        expect(robot.placed?).to be false
       end
     end
 
     context 'after robot is placed' do
-      it 'returns false' do
+      it 'returns true' do
         PlaceCommand.new(robot, table, Position.new(1, 2, 'E')).execute
 
-        expect(robot.not_placed?).to be false
+        expect(robot.placed?).to be true
       end
     end
   end
