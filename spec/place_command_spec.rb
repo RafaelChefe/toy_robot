@@ -12,17 +12,17 @@ describe PlaceCommand do
     let(:place_command) { PlaceCommand.new(robot, table, position) }
 
     context 'with valid position' do
-      let(:position) { Position.new(1, 1, 'N') }
+      let(:position) { Position.new(1, 1, 'NORTH') }
 
       it 'places robot ' do
         place_command.execute
 
-        expect(robot.report).to eq('1, 1, N')
+        expect(robot.report).to eq('1, 1, NORTH')
       end
     end
 
     context 'with INVALID position' do
-      let(:position) { Position.new(-1, 1, 'N') }
+      let(:position) { Position.new(-1, 1, 'NORTH') }
 
       it 'places robot ' do
         place_command.execute
