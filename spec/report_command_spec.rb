@@ -20,7 +20,7 @@ describe ReportCommand do
 
         PlaceCommand.new(robot, table, position).execute
 
-        expected_report = "1, 1, NORTH\n"
+        expected_report = "1,1,NORTH\n"
 
         expect { ReportCommand.new(robot).execute }.to output(expected_report).to_stdout
       end

@@ -41,7 +41,7 @@ describe Robot do
       it 'reports current position correctly' do
         PlaceCommand.new(robot, table, position).execute
 
-        expect(robot.report).to eq('2, 3, NORTH')
+        expect(robot.report).to eq('2,3,NORTH')
       end
     end
 
@@ -58,7 +58,7 @@ describe Robot do
 
       PlaceCommand.new(robot, table, position).execute
 
-      expect(robot.report).to eq('1, 1, NORTH')
+      expect(robot.report).to eq('1,1,NORTH')
     end
   end
 
@@ -71,7 +71,7 @@ describe Robot do
 
         LeftCommand.new(robot).execute
 
-        expect(robot.report).to eq('1, 1, WEST')
+        expect(robot.report).to eq('1,1,WEST')
       end
 
       it 'correctly turns to the right' do
@@ -81,7 +81,7 @@ describe Robot do
 
         RightCommand.new(robot).execute
 
-        expect(robot.report).to eq('1, 1, EAST')
+        expect(robot.report).to eq('1,1,EAST')
       end
 
       it 'correctly moves NORTH' do
@@ -91,7 +91,7 @@ describe Robot do
 
         MoveCommand.new(robot, table).execute
 
-        expect(robot.report).to eq('1, 2, NORTH')
+        expect(robot.report).to eq('1,2,NORTH')
       end
 
       it 'correctly moves SOUTH' do
@@ -101,7 +101,7 @@ describe Robot do
 
         MoveCommand.new(robot, table).execute
 
-        expect(robot.report).to eq('1, 0, SOUTH')
+        expect(robot.report).to eq('1,0,SOUTH')
       end
 
       it 'correctly moves EAST' do
@@ -111,7 +111,7 @@ describe Robot do
 
         MoveCommand.new(robot, table).execute
 
-        expect(robot.report).to eq('2, 1, EAST')
+        expect(robot.report).to eq('2,1,EAST')
       end
 
       it 'correctly moves WEST' do
@@ -121,7 +121,7 @@ describe Robot do
 
         MoveCommand.new(robot, table).execute
 
-        expect(robot.report).to eq('0, 1, WEST')
+        expect(robot.report).to eq('0,1,WEST')
       end
     end
 

@@ -12,7 +12,7 @@ class Robot
     if !placed?
       'not in place'
     else
-      "#{@current_position.x}, #{@current_position.y}, #{@current_position.direction}"
+      [@current_position.x, @current_position.y, @current_position.direction].join(',')
     end
   end
 

@@ -20,7 +20,7 @@ describe RightCommand do
 
       right_command.execute
 
-      expect(robot.report).to eq('1, 1, EAST')
+      expect(robot.report).to eq('1,1,EAST')
     end
 
     it 'when facing EAST turns SOUTH' do
@@ -30,7 +30,7 @@ describe RightCommand do
 
       right_command.execute
 
-      expect(robot.report).to eq('1, 1, SOUTH')
+      expect(robot.report).to eq('1,1,SOUTH')
     end
 
     it 'when facing SOUTH turns WEST' do
@@ -40,7 +40,7 @@ describe RightCommand do
 
       right_command.execute
 
-      expect(robot.report).to eq('1, 1, WEST')
+      expect(robot.report).to eq('1,1,WEST')
     end
 
     it 'when facing WEST turns NORTH' do
@@ -50,7 +50,7 @@ describe RightCommand do
 
       right_command.execute
 
-      expect(robot.report).to eq('1, 1, NORTH')
+      expect(robot.report).to eq('1,1,NORTH')
     end
   end
 end
