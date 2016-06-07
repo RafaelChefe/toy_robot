@@ -19,7 +19,7 @@ class Position
   #      |
   #      |
   #      S
-  DIRECTIONS = %w(N E S W).freeze
+  DIRECTIONS = %w(NORTH EAST SOUTH WEST).freeze
 
   def initialize(x, y, direction)
     @x = x
@@ -29,13 +29,13 @@ class Position
 
   def go_to(direction)
     case direction
-    when 'N'
+    when 'NORTH'
       go_north
-    when 'E'
+    when 'EAST'
       go_east
-    when 'S'
+    when 'SOUTH'
       go_south
-    when 'W'
+    when 'WEST'
       go_west
     end
   end
