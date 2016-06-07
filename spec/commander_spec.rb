@@ -17,12 +17,12 @@ describe Commander do
 
   describe '#parse' do
     context 'PLACE command' do
-      input = 'PLACE 1, 1, N'
+      input = 'PLACE 1, 1, NORTH'
 
       it 'creates command with the correct arguments' do
-        position = instance_double('Position', x: 1, y: 1, direction: 'N')
+        position = instance_double('Position', x: 1, y: 1, direction: 'NORTH')
 
-        expect(Position).to receive(:new).with(1, 1, 'N').and_return(position)
+        expect(Position).to receive(:new).with(1, 1, 'NORTH').and_return(position)
 
         expect(PlaceCommand).to receive(:new).with(robot, table, position)
 
