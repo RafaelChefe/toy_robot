@@ -101,7 +101,7 @@ movement of the toy robot.
 
 ## Setup
 
-1. Make sure you have Ruby 2.2 installed in your machine. If you need help installing Ruby, take a look at the [official installation guide](https://www.ruby-lang.org/en/documentation/installation/).
+1. Make sure you have Ruby 2.3 installed in your machine. If you need help installing Ruby, take a look at the [official installation guide](https://www.ruby-lang.org/en/documentation/installation/).
 
 2. Install the [bundler gem](http://bundler.io/) by running:
 
