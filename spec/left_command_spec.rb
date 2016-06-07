@@ -14,43 +14,43 @@ describe LeftCommand do
     let(:left_command) { LeftCommand.new(robot) }
 
     it 'when facing NORTH turns WEST' do
-      position = Position.new(1, 1, 'N')
+      position = Position.new(1, 1, 'NORTH')
 
       PlaceCommand.new(robot, table, position).execute
 
       left_command.execute
 
-      expect(robot.report).to eq('1, 1, W')
+      expect(robot.report).to eq('1, 1, WEST')
     end
 
     it 'when facing WEST turns SOUTH' do
-      position = Position.new(1, 1, 'W')
+      position = Position.new(1, 1, 'WEST')
 
       PlaceCommand.new(robot, table, position).execute
 
       left_command.execute
 
-      expect(robot.report).to eq('1, 1, S')
+      expect(robot.report).to eq('1, 1, SOUTH')
     end
 
     it 'when facing SOUTH turns EAST' do
-      position = Position.new(1, 1, 'S')
+      position = Position.new(1, 1, 'SOUTH')
 
       PlaceCommand.new(robot, table, position).execute
 
       left_command.execute
 
-      expect(robot.report).to eq('1, 1, E')
+      expect(robot.report).to eq('1, 1, EAST')
     end
 
     it 'when facing EAST turns NORTH' do
-      position = Position.new(1, 1, 'E')
+      position = Position.new(1, 1, 'EAST')
 
       PlaceCommand.new(robot, table, position).execute
 
       left_command.execute
 
-      expect(robot.report).to eq('1, 1, N')
+      expect(robot.report).to eq('1, 1, NORTH')
     end
   end
 end
