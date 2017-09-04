@@ -1,3 +1,5 @@
+# first comment
+
 require_relative 'lib/commander'
 require_relative 'lib/table'
 require_relative 'lib/robot'
