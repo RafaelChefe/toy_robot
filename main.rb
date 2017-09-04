@@ -1,4 +1,5 @@
 # first comment
+# second comment
 
 require_relative 'lib/commander'
 require_relative 'lib/table'
