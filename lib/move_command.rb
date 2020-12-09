@@ -1,5 +1,6 @@
-class MoveCommand
+# frozen_string_literal: true
 
+class MoveCommand
   def initialize(robot, table)
     @robot = robot
     @table = table

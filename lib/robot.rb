@@ -1,5 +1,6 @@
-class Robot
+# frozen_string_literal: true
 
+class Robot
   attr_accessor :current_position
 
   def initialize
@@ -10,9 +11,9 @@ class Robot
   # x, y, d
   def report
     if !placed?
-      'not in place'
+      "not in place"
     else
-      [@current_position.x, @current_position.y, @current_position.direction].join(',')
+      [@current_position.x, @current_position.y, @current_position.direction].join(",")
     end
   end
 

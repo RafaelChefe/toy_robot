@@ -1,5 +1,6 @@
-class RightCommand
+# frozen_string_literal: true
 
+class RightCommand
   def initialize(robot)
     @robot = robot
   end
@@ -14,4 +15,3 @@ class RightCommand
     end
   end
 end
-

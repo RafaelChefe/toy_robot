@@ -1,5 +1,6 @@
-class PlaceCommand
+# frozen_string_literal: true
 
+class PlaceCommand
   def initialize(robot, table, position)
     @robot = robot
     @table = table
@@ -11,5 +12,4 @@ class PlaceCommand
   def execute
     @robot.current_position = @position if @table.position_is_valid?(@position)
   end
-
 end

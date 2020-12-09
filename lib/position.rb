@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # x is the robot's HORIZONTAL position
 # y is the robot's VERTICAL position
 # see the chart below:
@@ -19,7 +21,7 @@ class Position
   #      |
   #      |
   #      S
-  DIRECTIONS = %w(NORTH EAST SOUTH WEST).freeze
+  DIRECTIONS = %w[NORTH EAST SOUTH WEST].freeze
 
   def initialize(x, y, direction)
     @x = x
@@ -29,13 +31,13 @@ class Position
 
   def go_to(direction)
     case direction
-    when 'NORTH'
+    when "NORTH"
       go_north
-    when 'EAST'
+    when "EAST"
       go_east
-    when 'SOUTH'
+    when "SOUTH"
       go_south
-    when 'WEST'
+    when "WEST"
       go_west
     end
   end
@@ -55,19 +57,20 @@ class Position
   end
 
   private
-    def go_north
-      Position.new(@x, @y + 1, @direction)
-    end
 
-    def go_south
-      Position.new(@x, @y - 1, @direction)
-    end
+  def go_north
+    Position.new(@x, @y + 1, @direction)
+  end
 
-    def go_west
-      Position.new(@x - 1, @y, @direction)
-    end
+  def go_south
+    Position.new(@x, @y - 1, @direction)
+  end
 
-    def go_east
-      Position.new(@x + 1, @y, @direction)
-    end
+  def go_west
+    Position.new(@x - 1, @y, @direction)
+  end
+
+  def go_east
+    Position.new(@x + 1, @y, @direction)
+  end
 end

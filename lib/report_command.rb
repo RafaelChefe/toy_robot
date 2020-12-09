@@ -1,5 +1,6 @@
-class ReportCommand
+# frozen_string_literal: true
 
+class ReportCommand
   def initialize(robot)
     @robot = robot
   end

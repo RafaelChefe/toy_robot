@@ -1,5 +1,6 @@
-class Commander
+# frozen_string_literal: true
 
+class Commander
   def initialize(robot, table)
     @robot = robot
     @table = table
@@ -7,19 +8,19 @@ class Commander
 
   # parses user input and issues the appropriate commands to the robot
   def parse(command)
-    if command =~ /^PLACE\s+\d+\s*,\s*\d+\s*,\s*(NORTH|SOUTH|EAST|WEST)$/
-      command, x, y, direction = command.gsub(',', ' ').split
+    case command
+    when /^PLACE\s+\d+\s*,\s*\d+\s*,\s*(NORTH|SOUTH|EAST|WEST)$/
+      command, x, y, direction = command.gsub(",", " ").split
 
       PlaceCommand.new(@robot, @table, Position.new(x.to_i, y.to_i, direction))
-    elsif command =~ /^MOVE$/
+    when /^MOVE$/
       MoveCommand.new(@robot, @table)
-    elsif command =~ /^LEFT$/
+    when /^LEFT$/
       LeftCommand.new(@robot)
-    elsif command =~ /^RIGHT$/
+    when /^RIGHT$/
       RightCommand.new(@robot)
-    elsif command =~ /^REPORT$/
+    when /^REPORT$/
       ReportCommand.new(@robot)
     end
   end
-
 end

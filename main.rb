@@ -1,12 +1,14 @@
-require_relative 'lib/commander'
-require_relative 'lib/table'
-require_relative 'lib/robot'
-require_relative 'lib/position'
-require_relative 'lib/move_command'
-require_relative 'lib/left_command'
-require_relative 'lib/place_command'
-require_relative 'lib/right_command'
-require_relative 'lib/report_command'
+# frozen_string_literal: true
+
+require_relative "lib/commander"
+require_relative "lib/table"
+require_relative "lib/robot"
+require_relative "lib/position"
+require_relative "lib/move_command"
+require_relative "lib/left_command"
+require_relative "lib/place_command"
+require_relative "lib/right_command"
+require_relative "lib/report_command"
 
 # initializes a new 5x5 table, a new robot, and a new command interpreter
 table = Table.new(5, 5)
@@ -23,7 +25,7 @@ loop do
 
   command = commander.parse(input)
 
-  command.execute unless command.nil?
+  command&.execute
 
   break if input =~ /exit/i
 end
