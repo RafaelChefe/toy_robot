@@ -1,0 +1,8 @@
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - Rakefile
+Style/Documentation:
+  Enabled: false
