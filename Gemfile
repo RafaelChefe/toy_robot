@@ -1,3 +1,5 @@
 source "https://rubygems.org"
 
-gem 'rspec', '~> 3.3.0'
+ruby "~> 2.7.2"
+
+gem 'rspec'
