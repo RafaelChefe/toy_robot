@@ -2,11 +2,11 @@
 
 require "spec_helper"
 require "commander"
-require "left_command"
-require "move_command"
-require "place_command"
-require "right_command"
-require "report_command"
+require "commands/left_command"
+require "commands/move_command"
+require "commands/place_command"
+require "commands/right_command"
+require "commands/report_command"
 require "position"
 require "robot"
 require "table"
@@ -21,7 +21,7 @@ describe Commander do
       input = "PLACE 1, 1, NORTH"
 
       it "creates command with the correct arguments" do
-        position = instance_double("Position", x: 1, y: 1, direction: "NORTH")
+        position = instance_double("Position", x_coord: 1, y_coord: 1, direction: "NORTH")
 
         expect(Position).to receive(:new).with(1, 1, "NORTH").and_return(position)
 

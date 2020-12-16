@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-class PlaceCommand
-  def initialize(robot, table, position)
-    @robot = robot
-    @table = table
-    @position = position
-  end
+require "commands/base_command"
 
+class PlaceCommand < BaseCommand
   # puts the robot at the given position, if position is valid.
   # if the position is not valid, nothing happens
   def execute

@@ -10,7 +10,7 @@ class Commander
   def parse(command)
     case command
     when /^PLACE\s+\d+\s*,\s*\d+\s*,\s*(NORTH|SOUTH|EAST|WEST)$/
-      command, x, y, direction = command.gsub(",", " ").split
+      _command, x, y, direction = command.gsub(",", " ").split
 
       PlaceCommand.new(@robot, @table, Position.new(x.to_i, y.to_i, direction))
     when /^MOVE$/

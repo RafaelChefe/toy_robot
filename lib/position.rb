@@ -10,7 +10,7 @@
 #       |
 #       +-------> X coordinate
 class Position
-  attr_reader :x, :y, :direction
+  attr_reader :x_coord, :y_coord, :direction
 
   # these are the four main cardinal directions: North, East, South and West
   # see the chart below:
@@ -23,9 +23,9 @@ class Position
   #      S
   DIRECTIONS = %w[NORTH EAST SOUTH WEST].freeze
 
-  def initialize(x, y, direction)
-    @x = x
-    @y = y
+  def initialize(x_coord, y_coord, direction)
+    @x_coord = x_coord
+    @y_coord = y_coord
     @direction = direction
   end
 
@@ -43,7 +43,7 @@ class Position
   end
 
   def ==(other)
-    @x == other.x && @y == other.y && @direction == other.direction
+    @x_coord == other.x_coord && @y_coord == other.y_coord && @direction == other.direction
   end
 
   # these helper methods return THE NEXT cardinal direction of a given position,
@@ -59,18 +59,18 @@ class Position
   private
 
   def go_north
-    Position.new(@x, @y + 1, @direction)
+    Position.new(@x_coord, @y_coord + 1, @direction)
   end
 
   def go_south
-    Position.new(@x, @y - 1, @direction)
+    Position.new(@x_coord, @y_coord - 1, @direction)
   end
 
   def go_west
-    Position.new(@x - 1, @y, @direction)
+    Position.new(@x_coord - 1, @y_coord, @direction)
   end
 
   def go_east
-    Position.new(@x + 1, @y, @direction)
+    Position.new(@x_coord + 1, @y_coord, @direction)
   end
 end

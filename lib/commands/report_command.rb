@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-class ReportCommand
-  def initialize(robot)
-    @robot = robot
-  end
+require "commands/base_command"
 
+class ReportCommand < BaseCommand
   # prints the robot's current position to the standard output, in readable format
   def execute
     puts @robot.report

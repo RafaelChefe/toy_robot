@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "place_command"
-require "report_command"
+require "commands/place_command"
+require "commands/report_command"
 require "position"
 require "robot"
 require "table"
@@ -22,7 +22,7 @@ describe ReportCommand do
 
         expected_report = "1,1,NORTH\n"
 
-        expect { ReportCommand.new(robot).execute }.to output(expected_report).to_stdout
+        expect { report_command.execute }.to output(expected_report).to_stdout
       end
     end
 
@@ -36,7 +36,7 @@ describe ReportCommand do
 
         expected_report = "not in place\n"
 
-        expect { ReportCommand.new(robot).execute }.to output(expected_report).to_stdout
+        expect { report_command.execute }.to output(expected_report).to_stdout
       end
     end
   end

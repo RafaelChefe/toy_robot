@@ -4,10 +4,10 @@ require "spec_helper"
 require "robot"
 require "position"
 require "table"
-require "left_command"
-require "place_command"
-require "right_command"
-require "move_command"
+require "commands/left_command"
+require "commands/place_command"
+require "commands/right_command"
+require "commands/move_command"
 
 describe Robot do
   let(:robot) { Robot.new }

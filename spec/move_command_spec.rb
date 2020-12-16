@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "move_command"
-require "place_command"
+require "commands/move_command"
+require "commands/place_command"
 require "position"
 require "robot"
 require "table"
