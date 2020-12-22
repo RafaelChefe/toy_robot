@@ -1,4 +1,4 @@
-# Toy Robot Simulator
+# Robot Challenge
 
 [![Code Climate](https://codeclimate.com/github/RafaelChefe/toy_robot/badges/gpa.svg)](https://codeclimate.com/github/RafaelChefe/toy_robot)
 
