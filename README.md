@@ -89,19 +89,10 @@ Expected output:
 Expected output
 
     3,3,NORTH
-
-### Deliverables
-
-Please provide your source code, and any test code/data you using in
-developing your solution.
-
-Please engineer your solution to a standard you consider suitable for
-production. It is not required to provide any graphical output showing the
-movement of the toy robot.
-
+    
 ## Setup
 
-1. Make sure you have Ruby 2.3 installed in your machine. If you need help installing Ruby, take a look at the [official installation guide](https://www.ruby-lang.org/en/documentation/installation/).
+1. Make sure you have Ruby 2.7.2+ installed in your machine. If you need help installing Ruby, take a look at the [official installation guide](https://www.ruby-lang.org/en/documentation/installation/).
 
 2. Install the [bundler gem](http://bundler.io/) by running:
 
@@ -122,7 +113,7 @@ movement of the toy robot.
 And you're ready to go!
 
 ### Running the app:
-```ruby main.rb```
+```ruby lib/main.rb```
 
 ### Running the tests:
 ```bundle exec rspec```
